@@ -1,0 +1,79 @@
+# ===================================================================================
+# DevMob - React Native Development Environment (https://github.com/JMVilomet/devmob)
+# ===================================================================================
+services:
+  devmob:
+    container_name: devmob
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        UID: ${UID}
+        GID: ${GID}
+        KVM_GID: ${KVM_GID}
+        RENDER_GID: ${RENDER_GID}
+        SDK_VERSION: ${SDK_VERSION}
+        ANDROID_BUILD_VERSION: ${ANDROID_BUILD_VERSION}
+        ANDROID_TOOLS_VERSION: ${ANDROID_TOOLS_VERSION}
+        NDK_VERSION: ${NDK_VERSION}
+        NODE_VERSION: ${NODE_VERSION}
+        WATCHMAN_VERSION: ${WATCHMAN_VERSION}
+        CMAKE_VERSION: ${CMAKE_VERSION}
+    user: "${UID}:${GID}"
+    environment:
+      # Gradle environment
+      GRADLE_USER_HOME: '/src/.gradle/'
+      # Locales
+      LANG: ${LANG}
+      LANGUAGE: ${LANGUAGE}
+      LC_ALL: ${LC_ALL}
+      TZ: ${TZ}
+      # Android SDK environment
+      ANDROID_HOME: ${ANDROID_HOME}
+      # Android emulator environment
+      ANDROID_EMULATOR_USE_SYSTEM_LIBS: 1
+      # X11 forwarding
+      DISPLAY: ${DISPLAY}
+      QT_X11_NO_MITSHM: 1
+      QT_QPA_PLATFORM: xcb
+      QT_QPA_PLATFORM_PLUGIN_PATH: /opt/android/emulator/lib64/qt/plugins
+      XDG_RUNTIME_DIR: /tmp/runtime-${UID}
+      LIBGL_ALWAYS_INDIRECT: 0
+      MESA_GL_VERSION_OVERRIDE: "3.3"
+      MESA_GLSL_VERSION_OVERRIDE: "330"
+      LIBGL_ALWAYS_SOFTWARE: "1"
+      __GLX_VENDOR_LIBRARY_NAME: mesa
+    volumes:
+      - ./app:/src
+      # X11 socket for GUI forwarding
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      # Runtime directory
+      - /tmp/runtime-${UID}:/tmp/runtime-${UID}:rw
+      # Android AVD storage
+      - ./.android/build-tools:${ANDROID_HOME}/build-tools
+      - ./.android/platforms:${ANDROID_HOME}/platforms
+      - ./.android/system-images:${ANDROID_HOME}/system-images
+      - ./.android/avd:/home/node/.android
+    network_mode: "host"
+    # Add proper device access
+    devices:
+      - /dev/dri:/dev/dri:rw
+      # Allow access to USB devices
+      - "/dev/bus:/dev/bus:rw"
+      # KVM acceleration
+      - "/dev/kvm:/dev/kvm"
+    privileged: true
+    # Security and capability settings
+    cap_add:
+      - SYS_PTRACE
+      - SYS_ADMIN
+    security_opt:
+      - seccomp:unconfined
+    # Memory limits
+    mem_limit: 8g
+    shm_size: 2g
+    # Ensure proper group access
+    group_add:
+      - "${KVM_GID}"
+      - video
+      - render
